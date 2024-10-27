@@ -79,7 +79,12 @@ class LoginPage extends StatelessWidget {
             TextButton(
               child: Text("OK"),
               onPressed: () {
-                Navigator.of(context).pop();
+                Navigator.of(context).pop(); // Menutup dialog
+                // Navigasi ke halaman dashboard setelah login berhasil
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => DashboardPage()),
+                );
               },
             ),
           ],
@@ -105,6 +110,23 @@ class LoginPage extends StatelessWidget {
           ],
         );
       },
+    );
+  }
+}
+
+class DashboardPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Dashboard'),
+      ),
+      body: Center(
+        child: Text(
+          'Selamat datang di Dashboard!',
+          style: TextStyle(fontSize: 24),
+        ),
+      ),
     );
   }
 }
